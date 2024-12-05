@@ -1,0 +1,7 @@
+2024-12-05 04:05:15,549 - root - INFO - Logger setup complete. Ready to log events.
+2024-12-05 04:05:15,550 - root - ERROR - Exception: Division by zero occurred
+2024-12-05 04:05:15,552 - root - ERROR - Traceback (most recent call last):
+  File "E:\mlproject\src\test_exception.py", line 7, in test_custom_exception
+    result = 10 / 0
+ZeroDivisionError: division by zero
+
