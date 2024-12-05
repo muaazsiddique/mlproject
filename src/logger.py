@@ -27,21 +27,18 @@ def setup_logger(log_file=LOG_FILE):
         formatter = logging.Formatter(
             "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
-        
-        # Rotating file handler for logs
-        file_handler = RotatingFileHandler(log_file, maxBytes=5 * 1024 * 1024, backupCount=5)
+
+        # File handler
+        file_handler = RotatingFileHandler(log_file, maxBytes=5*1024*1024, backupCount=2)
         file_handler.setFormatter(formatter)
-        
-        # Console handler to also log to console
+        logger.addHandler(file_handler)
+
+        # Console handler
         console_handler = logging.StreamHandler()
         console_handler.setFormatter(formatter)
-
-        # Add handlers to logger
-        logger.addHandler(file_handler)
         logger.addHandler(console_handler)
-    
+
     return logger
 
-# Example of how to use the logger
+# Get the logger
 logger = setup_logger()
-logger.info("Logger setup complete. Ready to log events.")
